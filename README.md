@@ -38,7 +38,7 @@ curl -G http://127.0.0.1/comrades/events/infoType  \
 }
 ```
 
-## Installation and Usage
+## Installation and Usage
 The CREES services can be run inside or outside a [docker](https://docker.com/) container. By default the API will be accessible on port 80 with the documentation accessible on *'/comrades'* and the services exposed under *'/comrades/events'*.
 
 
