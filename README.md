@@ -14,7 +14,7 @@ Burel, Grégoire; Saif, Hassan; Fernandez, Miriam and Alani, Harith (2017). On S
 
 
 ## APIs Usage
-![alt text](doc/api.png "CREES API")
+![alt text](docs/api.png "CREES API")
 
 The CREES API exposes 3 services that can be tested using a web browser. By defualt, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter. The methods are the following:
 
@@ -22,7 +22,7 @@ The CREES API exposes 3 services that can be tested using a web browser. By defu
 
 2) ***/comrades/events/eventType***: Determines the type of crisis discussed in a document. The following labels are returned: *"bombings", "collapse", "crash", "derailment", "earthquake", "explosion", "fire", "floods", "haze", "meteorite", "none", "shootings", "typhoon"* and *"wildfire"*.
 
-3) ***/comrades/events/eventRelated***: Determines the type of informaiton discussed in a document. The following labels are returned: *"affected_individuals", "caution_and_advice", "donations_and_volunteering", "infrastructure_and_utilities", "not_applicable", "not_labeled", "other_useful_information"* and *"sympathy_and_support"*.
+3) ***/comrades/events/infoType***: Determines the type of information discussed in a document. The following labels are returned: *"affected_individuals", "caution_and_advice", "donations_and_volunteering", "infrastructure_and_utilities", "not_applicable", "not_labeled", "other_useful_information"* and *"sympathy_and_support"*.
 
 Each method returns a similar JSON object. For example:
 ```sh
