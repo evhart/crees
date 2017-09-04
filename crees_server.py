@@ -1,6 +1,9 @@
 #! /usr/bin/env python
+from __future__ import print_function
 import os
 import sys
+import io
+import csv
 from optparse import OptionParser
 
 import numpy as np
@@ -11,6 +14,9 @@ from tensorflow.contrib import learn
 import data_helpers
 from flask_restplus import Api, Resource, fields, marshal_with, reqparse
 from text_cnn import TextCNNModel
+
+from werkzeug.datastructures import FileStorage
+
 
 
 # Create event type model
@@ -51,6 +57,9 @@ def main(argv):
 
     parser.add_option('-n', '--namespace', type='string', dest='api_namespace', default="comrades",
                       help="the API namespace for CREES [default: %default]")
+
+    parser.add_option('-d', '--debug', action="store_true", dest='debug', default=False,
+                      help="show debugging information")
 
     (options, args) = parser.parse_args()
 
@@ -113,6 +122,36 @@ def main(argv):
 
             return {'input': text, 'label': results, 'classifier': "CNN", 'version': 0.3}
 
+        post_arguments = reqparse.RequestParser()
+        post_arguments.add_argument(
+            'texts', required=True, type=list, location='json', help="The JSON array containning the strings to be analysed.")
+
+        # Output arguments:
+        model2_inner = api.model('Category', {
+            'input': fields.String,
+            'label': fields.String,
+        })
+        model2 = api.model('Categories', {
+            'labels': fields.List(fields.Nested(model2_inner)),
+            'classifier': fields.String,
+            'version': fields.Float
+        })
+
+
+        @api.doc(id='textEventType')
+        @api.expect(post_arguments, validate=False)
+        @api.marshal_with(model2, description='Event Type')
+        def post(self):
+            """Identifies the type of events associated with multiple posts."""
+            data = request.get_json()
+
+            resp = []
+            for text in data:
+                results = type_classifier.predict(text) 
+                resp.append({'input': text, 'label': results})
+            
+            return {'labels': resp, 'classifier': "CNN", 'version': 0.3}
+
     @ns.route('/events/infoType')
     class InfoTypeClassifierController(Resource):
         """
@@ -142,6 +181,37 @@ def main(argv):
             results = info_classifier.predict(text)
 
             return {'input': text, 'label': results, 'classifier': "CNN", 'version': 0.3}
+
+
+        post_arguments = reqparse.RequestParser()
+        post_arguments.add_argument(
+            'texts', required=True, type=list, location='json', help="The JSON array containning the strings to be analysed.")
+
+        # Output arguments:
+        model2_inner = api.model('Category', {
+            'input': fields.String,
+            'label': fields.String,
+        })
+        model2 = api.model('Categories', {
+            'labels': fields.List(fields.Nested(model2_inner)),
+            'classifier': fields.String,
+            'version': fields.Float
+        })
+
+
+        @api.doc(id='textInfoType')
+        @api.expect(post_arguments, validate=False)
+        @api.marshal_with(model2, description='Info Type')
+        def post(self):
+            """Identifies the type of information associated with multiple posts'"""
+            data = request.get_json()
+
+            resp = []
+            for text in data:
+                results = info_classifier.predict(text) 
+                resp.append({'input': text, 'label': results})
+            
+            return {'labels': resp, 'classifier': "CNN", 'version': 0.3}
 
     @ns.route('/events/eventRelated')
     class RelatedClassifierController(Resource):
@@ -173,8 +243,39 @@ def main(argv):
 
             return {'input': text, 'label': results, 'classifier': "CNN", 'version': 0.3}
 
+        post_arguments = reqparse.RequestParser()
+        post_arguments.add_argument(
+            'texts', required=True, type=list, location='json', help="The JSON array containning the strings to be analysed.")
+
+        # Output arguments:
+        model2_inner = api.model('Category', {
+            'input': fields.String,
+            'label': fields.String,
+        })
+        model2 = api.model('Categories', {
+            'labels': fields.List(fields.Nested(model2_inner)),
+            'classifier': fields.String,
+            'version': fields.Float
+        })
+
+
+        @api.doc(id='textEventRelated')
+        @api.expect(post_arguments, validate=False)
+        @api.marshal_with(model2, description='Event relations')
+        def post(self):
+            """Identifies if multiple posts are talking about an event."""
+            data = request.get_json()
+
+            resp = []
+            for text in data:
+                results = related_classifier.predict(text) 
+                resp.append({'input': text, 'label': results})
+            
+            return {'labels': resp, 'classifier': "CNN", 'version': 0.3}
+
+
     # Start App:
-    app.run(host='0.0.0.0', port=options.port, debug=False)
+    app.run(host='0.0.0.0', port=options.port, debug=options.debug)
 
 
 if __name__ == "__main__":

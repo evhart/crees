@@ -27,7 +27,7 @@ The CREES API exposes 3 services that can be tested using a web browser. By defu
 Each method returns a similar JSON object. For example:
 ```sh
 curl -G http://127.0.0.1/comrades/events/infoType  \
---data-urlencode 'text=If you are evacuating please dont wait, \take your pets when you evacuate #HighParkFire'
+--data-urlencode 'text=If you are evacuating please dont wait, take your pets when you evacuate #HighParkFire'
 ```
 ```json
 {
