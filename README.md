@@ -1,4 +1,4 @@
-# Crisis Event Extraction Service (CREES)
+# ![Crisis Event Extraction Service (CREES)](docs/title.png "Crisis Event Extraction Service (CREES)")
 
 The [COMRADES](http://www.comrades-project.eu/) CREES Services (Crisis Event Extraction Service) provide a rest API for annotating short text documents (e.g. tweets) by 1) identifying if a document is related to a crisis; 2) the type of event discussed and, 3) the type of information present in a document.
 
@@ -10,13 +10,10 @@ If you use this code/model please cite the following publication:
 - *[On Semantics and Deep Learning for Event Detection in Crisis Situations](http://oro.open.ac.uk/49639/)*
 Burel, Grégoire; Saif, Hassan; Fernandez, Miriam and Alani, Harith (2017). On Semantics and Deep Learning for Event Detection in Crisis Situations. In: Workshop on Semantic Deep Learning (SemDeep), at ESWC 2017, 29 May 2017, Portoroz, Slovenia.
 
-
-
-
 ## APIs Usage
-![alt text](docs/api.png "CREES API")
+![CREES API](docs/api.png "CREES API")
 
-The CREES API exposes 3 services that can be tested using a web browser. By defualt, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter. The methods are the following:
+The CREES API exposes 3 services that can be tested using a web browser. By defualt, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter or a *POST* query taht can be used for annotating more than one document. The methods are the following:
 
 1) ***/comrades/events/eventRelated***: Determines if a document is related to a crisis sitution. The following labels are returned: *"non-related", "related"*.
 
@@ -38,10 +35,30 @@ curl -G http://127.0.0.1/comrades/events/infoType  \
 }
 ```
 
+Although the *GET* method only accept one document as input, you can use their *POST* version in order to annotate more than one document by submitting a JSON array containning a list of documents to annotate. Each method returns a similar JSON object. For example:
+
+```sh
+ curl -X POST http://127.0.0.1/comrades/events/eventRelated  --header 'Content-Type: application/json' -d '["If you are evacuating please dont wait, take your pets when you evacuate #HighParkFire", "AAPL, NBA playoffs 2013, New York Post, West Texas, ..."]'
+```
+```json
+{  
+   "labels": [  
+      {  
+         "input": "If you are evacuating please dont wait, take your pets when you evacuate #HighParkFire",
+         "label": "related"
+      },
+      {  
+         "input": "AAPL, NBA playoffs 2013, New York Post, West Texas, ...",
+         "label": "non-related"
+      }
+   ],
+   "classifier": "CNN",
+   "version": 0.3
+}
+```
+
 ## Installation and Usage
 The CREES services can be run inside or outside a [docker](https://docker.com/) container. By default the API will be accessible on port 80 with the documentation accessible on *'/comrades'* and the services exposed under *'/comrades/events'*.
-
-
 
 ### Requirements
 The CREES services need the following libraries installed and Python 2:
@@ -50,7 +67,6 @@ The CREES services need the following libraries installed and Python 2:
 * numpy
 * flask
 * flask-restplus
-
 
  **You will also need to install the [GIT Large File Storage](https://git-lfs.github.com/) extenssion in order to be able to clone the repository since the CRESS models are larger than 150MB.**
 
