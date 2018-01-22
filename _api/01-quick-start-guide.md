@@ -45,7 +45,7 @@ Determines the type of information discussed in a document.
 ![CREES API]({{'' | absolute_url}}/assets/images/api-screen.png "CREES API")
 {: .full}
 
-The CREES API exposes 3 services that can be tested using a web browser. By default, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter or a *POST* query taht can be used for annotating more than one document. The methods are the following:
+The CREES API exposes 3 services that can be tested using a web browser. By default, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter or a *POST* query that can be used for annotating more than one document. The methods are the following:
 
 1) ***/comrades/events/eventRelated***: Determines if a document is related to a crisis sitution. The following labels are returned: *"non-related", "related"*.
 
@@ -70,7 +70,7 @@ curl -G http://127.0.0.1/comrades/events/infoType  \
 }
 ```
 
-Although the *GET* method only accept one document as input, you can use their *POST* version in order to annotate more than one document by submitting a JSON array containning a list of documents to annotate. Each method returns a similar JSON object. For example:
+Although the *GET* method only accepts one document as input, you can use the *POST* version in order to annotate more than one document by submitting a JSON array containning a list of documents to annotate. Each method returns a similar JSON object. For example:
 
 ```sh
  curl -X POST http://127.0.0.1/comrades/events/eventRelated  --header 'Content-Type: application/json' -d '["If you are evacuating please dont wait, take your pets when you evacuate #HighParkFire", "AAPL, NBA playoffs 2013, New York Post, West Texas, ..."]'

@@ -32,7 +32,7 @@ Burel, Grégoire; Saif, Hassan; Fernandez, Miriam and Alani, Harith (2017). On S
 The CREES API code and models can be downloaded from [GitHub](https://github.com/evhart/crees). 
 
 ## Report an Issue
-If you find any bug or have any issues with the API, you can add an isue to the (bug tracker)[https://github.com/evhart/crees/issues].
+If you find any bug or have any issues with the API, you can add an issue to the (bug tracker)[https://github.com/evhart/crees/issues].
 
 
 ## References

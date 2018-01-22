@@ -37,7 +37,7 @@ feature_row:
   - image_path: /assets/images/sheets.png
     alt: "Google Sheets Add-on"
     #title: "CREES Google Sheets"
-    excerpt: "CREES is integratated into Google Sheets as a add-on and can be used for automatically annotating spreadsheets documents."
+    excerpt: "CREES is integratated into Google Sheets as a add-on and can be used for automatically annotating spreadsheet documents."
     url: "/add-on/quick-start-guide"
     btn_label: "Learn More"
     btn_class: "btn--inverse"
@@ -45,7 +45,7 @@ feature_row:
   - image_path: /assets/images/comrades.png
     alt: "COMRADES Platforme"
     #title: "CREES and COMRADES"
-    excerpt: "CREES is integrated into the Ushahidi platform as part of the COMRADES platform."
+    excerpt: "CREES is integrated into the Ushahidi COMRADES platform."
     url: "http://www.comrades-project.eu/"
     btn_label: "Learn More"
     btn_class: "btn--inverse"
