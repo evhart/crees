@@ -1,0 +1,39 @@
+main:
+  - title: "CREES API"
+    url: /api/quick-start-guide
+  - title: "Google Sheets Add-on"
+    url: /add-on/quick-start-guide/
+  - title: "About"
+    url: /about/
+
+api:
+  - title: Getting Started
+    children:
+      - title: Quick-Start Guide
+        url: /api/quick-start-guide/
+      - title: Google Add-on
+        url: /add-on/quick-start-guide/
+  - title: Installation
+    children:
+      - title: Installation and Configuration
+        url: /api/installation
+  - title: Meta
+    children:
+      - title: About
+        url: /about/
+    
+add-on:
+  - title: Getting Started
+    children:
+      - title: Quick-Start Guide
+        url: /add-on/quick-start-guide/
+      - title: Installation
+        url: /add-on/installation/
+      - title: Advanced Usage
+        url: /add-on/advanced/
+  - title: Meta
+    children:
+      - title: CREES API
+        url: /api/quick-start-guide/
+      - title: About
+        url: /about/
