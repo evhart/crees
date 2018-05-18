@@ -1,6 +1,7 @@
-# ![Crisis Event Extraction Service (CREES)](docs/title.png "Crisis Event Extraction Service (CREES)" )
+# ![Crisis Event Extraction Service (CREES)](docs/title.png "Crisis Event Extraction Service (CREES)")
+Website: https://evhart.github.io/crees/
 
-The [COMRADES](http://www.comrades-project.eu/) CREES Services (Crisis Event Extraction Service) provide a rest API for annotating short text documents (e.g. tweets) by 1) identifying if a document is related to a crisis; 2) the type of event discussed and, 3) the type of information present in a document.
+The [COMRADES](http://www.comrades-project.eu/) CREES Services (Crisis Event Extraction Service) provide a rest API for annotating short text documents (e.g. tweets) by 1) identifying if a document is related to a crisis; 2) the type of event discussed, and; 3) the type of information present in a document.
 
 The CRESS API is a multilclass CNN classifier that is trained on the [CrisisLexT26 data](https://github.com/sajao/CrisisLex/tree/master/data/CrisisLexT26). The model extends  Kim Yoon’s [Convolutional Neural Networks for Sentence Classification](http://arxiv.org/abs/1408.5882) and Denny Britz's [work](https://github.com/dennybritz/cnn-text-classification-tf). The model was published along the Dual-CNN model in the paper: [On Semantics and Deep Learning for Event Detection in Crisis Situations](http://oro.open.ac.uk/49639/).
 
@@ -13,7 +14,7 @@ Burel, Grégoire; Saif, Hassan; Fernandez, Miriam and Alani, Harith (2017). On S
 ## APIs Usage
 ![CREES API](docs/api.png "CREES API")
 
-The CREES API exposes 3 services that can be tested using a web browser. By defualt, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter or a *POST* query taht can be used for annotating more than one document. The methods are the following:
+The CREES API exposes 3 services that can be tested using a web browser. By defualt, they are accessible under */comrades*. Each method can be accessed using a *GET* query with the *text* parameter or a *POST* query that can be used for annotating more than one document. The methods are the following:
 
 1) ***/comrades/events/eventRelated***: Determines if a document is related to a crisis sitution. The following labels are returned: *"non-related", "related"*.
 
