@@ -1,10 +1,9 @@
 #
 # Dockerfile for deploying the COMRADES CREES Services (COMRADES Crisis Event Extraction Services).
 #
+#FROM python:2.7.14-alpine3.6
 FROM ubuntu:16.04
-MAINTAINER Gregoire Burel "evhart@users.noreply.github.com"
-ARG PORT=80
-EXPOSE ${PORT}
+LABEL maintainer="Grégoire Burel <evhart@users.noreply.github.com>"
 
 RUN apt-get update && apt-get install -y python-pip python-dev && rm -rf /var/lib/apt/lists/*
 

@@ -23,6 +23,7 @@ from werkzeug.datastructures import FileStorage
 def __load_models():
     mod = "models/event-types/model.ckpt"
     vocab = "models/event-types/vocabulary.voc"
+    data_helpers.merge_model_file(mod, remove=True)
     type_classifier = TextCNNModel.restore(
         mod, vocab, sequence_length=32, num_classes=14, vocab_size=44345)
     type_classifier.labels = ["bombings", "collapse", "crash", "derailment", "earthquake",
@@ -32,6 +33,7 @@ def __load_models():
     # Create related event type model:
     mod = "models/event-related/model.ckpt"
     vocab = "models/event-related/vocabulary.voc"
+    data_helpers.merge_model_file(mod, remove=True)
     related_classifier = TextCNNModel.restore(
         mod, vocab, sequence_length=43, num_classes=2, vocab_size=87420)
     related_classifier.labels = ["non-related", "related"]
@@ -39,6 +41,7 @@ def __load_models():
     # Create related info type model:
     mod = "models/info-types/model.ckpt"
     vocab = "models/info-types/vocabulary.voc"
+    data_helpers.merge_model_file(mod, remove=True)
     info_classifier = TextCNNModel.restore(
         mod, vocab, sequence_length=32, num_classes=8, vocab_size=44345)
     info_classifier.labels = ["affected_individuals", "caution_and_advice", "donations_and_volunteering",

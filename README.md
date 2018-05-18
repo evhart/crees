@@ -1,4 +1,4 @@
-# ![Crisis Event Extraction Service (CREES)](docs/title.png "Crisis Event Extraction Service (CREES)")
+# ![Crisis Event Extraction Service (CREES)](docs/title.png "Crisis Event Extraction Service (CREES)" )
 
 The [COMRADES](http://www.comrades-project.eu/) CREES Services (Crisis Event Extraction Service) provide a rest API for annotating short text documents (e.g. tweets) by 1) identifying if a document is related to a crisis; 2) the type of event discussed and, 3) the type of information present in a document.
 
@@ -68,7 +68,6 @@ The CREES services need the following libraries installed and Python 2:
 * flask
 * flask-restplus
 
- **You will also need to install the [GIT Large File Storage](https://git-lfs.github.com/) extenssion in order to be able to clone the repository since the CRESS models are larger than 150MB.**
 
 ### Starting the Server
 For starting the CREES server you can simply run the *crees_server.py* file:
