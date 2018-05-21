@@ -64,7 +64,7 @@ The CREES services can be run inside or outside a [docker](https://docker.com/) 
 ### Requirements
 The CREES services need the following libraries installed and Python 2:
 * python 2 (tested on 2.7.10)
-* [tensorflow (0.12)](https://www.tensorflow.org/versions/r0.12/get_started/os_setup)
+* tensorflow==0.12.1 [tensorflow (0.12.1)](https://www.tensorflow.org/versions/r0.12/get_started/os_setup)
 * numpy
 * flask
 * flask-restplus
