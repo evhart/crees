@@ -72,6 +72,9 @@ def main(argv):
     if os.environ.get('CREES_NAMESPACE') is not None and options.api_namespace is 'comrades':
         options.api_namespace = str(os.environ.get('CREES_NAMESPACE'))
 
+    print(' * Using port: '+str(options.port))
+    print(' * Using namespace: /'+str(options.api_namespace))
+
     # Web App:
     app = Flask(__name__, static_url_path='')
     app.config['RESTPLUS_MASK_SWAGGER'] = False

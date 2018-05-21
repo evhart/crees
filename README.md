@@ -113,7 +113,7 @@ You can also pass environment variables to the docker container for modifying th
 ```
 docker run -i -p 80:8080 --name crees_server  \
 -e CREES_PORT=8080 \
--e CREES_NAMESPACE='crees' \
+-e CREES_NAMESPACE=crees \
 evhart/comrades_crees:latest
 ```
 
