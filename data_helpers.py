@@ -52,7 +52,7 @@ def merge_model_file(model, remove=False):
     """
     for m in glob.glob(str(model)+'*.0'):
         with open(m[:-2], 'wb') as f:
-            for m2 in sorted(glob.glob(m[:-2]+'.*'), key=os.path.getmtime):
+            for m2 in sorted(glob.glob(m[:-2]+'.*'), key=lambda f: os.path.splitext(f)):
                 with open(m2) as f2:
                     f.write(f2.read())
 
