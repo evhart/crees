@@ -68,6 +68,7 @@ The CREES services need the following libraries installed and Python 2:
 * numpy
 * flask
 * flask-restplus
+* enum34
 
 
 ### Starting the Server
