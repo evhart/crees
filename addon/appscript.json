@@ -1,0 +1,10 @@
+{
+    "timeZone": "Europe/London",
+    "dependencies": {
+    },
+    "webapp": {
+      "access": "ANYONE",
+      "executeAs": "USER_ACCESSING"
+    },
+    "exceptionLogging": "STACKDRIVER"
+  }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+    .headerimg {
+    text-indent: -9999px;
+    width: 400px;
+    height: 50px;
+    background-image: url(https://raw.githubusercontent.com/evhart/crees/master/docs/title.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <h1 class='headerimg'><a href="https://evhart.github.io/crees/">CREES: Cris Event Extraction Service</a></h1>
+    <p>
+        The <a href="https://github.com/evhart/crees">Crisis Event Extraction Service (CREES)</a> provides a rest API for annotating short text documents for helping to classify large amount of short document (e.g. tweets) by 1) identifying if a document is related to a crisis event (e.g., fire, earthquake); 2) the type of event discussed and, 3) the type of information present in a document. This add-on makes such API available through custom functions.        
+    </p>
+    <p>
+        The <a href="https://evhart.github.io/crees/">CREES add-on</a> provides three different customs functions that can be applied on textual columns or individual cells for annotating the contained text. Each cell should contain a small document similar in length to tweets.
+    </p>
+    <p>
+        The CREES add-on makes available the following functions: 
+    </p>
+    <ol>
+        <li><b>CREES_RELATED:</b> Identifies if a short text document discusses a crisis event (returns one of the following labels: <i>non-related, related</i>).</li>
+        <li><b>CREES_EVENT:</b> Identifies the type of event discussed within a short textual document (returns one of the following labels: <i>bombings, collapse, crash, derailment, earthquake, explosion, fire, floods, haze, meteorite, none, shootings, typhoon, wildfire</i>).</li> 
+        <li><b>CREES_INFO:</b> Identifies the type of information discussed within a short textual crisis-related document (returns one of the following labels: <i>affected_individuals, caution_and_advice, donations_and_volunteering, infrastructure_and_utilities, not_applicable, not_labeled, other_useful_information, sympathy_and_support</i>).</li>
+    </ol>
+    <p>
+        More information about each function can be obtained  in the built-in documentation. You can access it by typing its the function name in a spreadsheet cell.
+    </p>
+    <p>More information about CREES can be found on the <a href="https://evhart.github.io/crees/">Add-on website</a> or in the following publications:
+    </p>
+    <ul>
+        <li><i><a href="http://oro.open.ac.uk/49639/">On Semantics and Deep Learning for Event Detection in Crisis Situations</a></i>. Burel, Grégoire; Saif, Hassan; Fernandez, Miriam and Alani, Harith (2017). On Semantics and Deep Learning for Event Detection in Crisis Situations. In: Workshop on Semantic Deep Learning (SemDeep), at ESWC 2017, 29 May 2017, Portoroz, Slovenia.
+        </li>
+        <li><i><a href="http://oro.open.ac.uk/55139/">Crisis Event Extraction Service (CREES) - Automatic Detection and Classification of Crisis-related Content on Social Media.</a></i>. Burel, Grégoire and Alani, Harith (2018). On Semantics and Deep Learning for Event Detection in Crisis Situations. In: 15th International Conference on Information Systems for Crisis Response and Management, 20-23 May 2018, Rochester, NY, USA.
+        </li>
+    </ul>        
+            
+    <input type="button" class="action" value="Close" onclick="google.script.host.close()" />  
+</body>
+</html>
